@@ -7,11 +7,20 @@ import * as Yup from "yup";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
+import { FormikHelpers } from "formik";
+
+type FormValues = {
+  name: string;
+  number: string;
+};
 
 export default function ContactForm() {
   const dispatch = useDispatch();
 
-  const handleContactForm = (values, actions) => {
+  const handleContactForm = (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) => {
     dispatch(
       addContact({
         id: uuidv4(),

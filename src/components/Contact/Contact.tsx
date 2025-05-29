@@ -3,7 +3,19 @@ import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { AiOutlineUserDelete } from "react-icons/ai";
 
-export default function Contact({ name, number, handeleDeleteContact, id }) {
+type Contact = {
+  name: string;
+  number: string;
+  handeleDeleteContact: (id: string) => void;
+  id: string;
+};
+
+export default function Contact({
+  name,
+  number,
+  handeleDeleteContact,
+  id,
+}: Contact) {
   return (
     <>
       <div className={css.contactInfo}>

@@ -1,10 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+type InitialState = {
+  name: string;
+};
+
+const initialState: InitialState = {
+  name: "",
+};
 
 const filterSlice = createSlice({
   name: "filters",
-  initialState: { name: "" },
+  initialState,
   reducers: {
-    changeFilter: (state, action) => {
+    changeFilter: (state, action: PayloadAction<string>) => {
       state.name = action.payload.toLowerCase(); // ставимо нові значення з екшена для фільтра
     },
   },
